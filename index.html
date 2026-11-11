@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Automotive Journalist & Communications Consultant</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6', // Teal accent for a modern, sleek look
+                            600: '#0d9488',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a polished feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #475569;
+        }
+        
+        /* Subtle image hover effect */
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        .img-hover-zoom img {
+            transition: transform .5s ease;
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-slate-900 dark:text-gray-200 transition-colors duration-300 antialiased font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0">
+                    <!-- EDIT HERE: Your Name -->
+                    <a href="#" class="font-bold text-xl tracking-tight dark:text-white">Shubhodeep <span class="text-brand-500">Chakravarty</span></a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium hover:text-brand-500 transition-colors">About</a>
+                    <a href="#milestones" class="text-sm font-medium hover:text-brand-500 transition-colors">Milestones</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-brand-500 transition-colors">Contact</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                        <!-- Sun Icon (shows in dark mode) -->
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 3.22a1 1 0 011.415 0l.85.85a1 1 0 11-1.414 1.415l-.85-.85a1 1 0 010-1.415zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-5.78 4.78a1 1 0 010 1.415l-.85.85a1 1 0 11-1.414-1.415l.85-.85a1 1 0 011.415 0zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-4.22-3.22a1 1 0 01-1.415 0l-.85-.85a1 1 0 111.414-1.415l.85.85a1 1 0 010 1.415zM4 11a1 1 0 100-2H3a1 1 0 100 2h1zm1.78-4.78a1 1 0 010-1.415l.85-.85a1 1 0 111.414 1.415l-.85.85a1 1 0 01-1.415 0z"/>
+                            <path d="M10 5a5 5 0 100 10 5 5 0 000-10zm-3 5a3 3 0 116 0 3 3 0 01-6 0z"/>
+                        </svg>
+                        <!-- Moon Icon (shows in light mode) -->
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-700" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-slate-800 mobile-link">About</a>
+                <a href="#milestones" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-slate-800 mobile-link">Milestones</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-slate-800 mobile-link">Contact</a>
+                <button id="mobile-theme-toggle" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 dark:hover:bg-slate-800">Toggle Theme</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto flex flex-col justify-center min-h-[80vh]">
+        <div class="max-w-3xl">
+            <!-- EDIT HERE: Hero Intro -->
+            <p class="text-brand-500 font-semibold tracking-wide uppercase text-sm mb-4">16 years of editorial and content expertise</p>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight dark:text-white">
+                Driving narratives in the <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-black dark:from-gray-300 dark:to-white">automotive industry.</span>
+            </h1>
+            <!-- EDIT HERE: Hero Subtitle -->
+            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl leading-relaxed">
+                Automotive Journalist, Digital Media Editor, and Communications Consultant specializing in high-impact editorial planning and compelling brand strategies.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#contact" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-slate-900 hover:bg-slate-800 dark:bg-brand-600 dark:hover:bg-brand-500 transition-all shadow-sm">
+                    Let's Connect
+                </a>
+                <a href="#milestones" class="inline-flex justify-center items-center px-6 py-3 border border-gray-300 dark:border-slate-700 text-base font-medium rounded-lg bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all shadow-sm">
+                    View Career Milestones
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-slate-800/50 border-y border-gray-100 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- EDIT HERE: About Text -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 dark:text-white">The Intersection of Media & Strategy</h2>
+                    <div class="space-y-4 text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+                        <p>
+                            For over 16 years, I have navigated the rapidly evolving landscape of automotive media. My career is built on a foundation of rigorous journalism, paired with an comprehensive understanding of how digital platforms shape consumer perception.
+                        </p>
+                        <p>
+                            <strong>Digital Content Strategy & Editorial Planning:</strong> I specialize in architecting relevant content calendars that resonate with target audiences. From high-octane video reviews to deeply researched industry op-eds, I ensure every piece of content aligns with overarching business objectives.
+                        </p>
+                        <p>
+                            <strong>Brand Narrative Development:</strong> Beyond reporting, I consult with automotive brands to refine their voices. Whether launching a new EV lineup or restructuring corporate communications, I craft narratives that build trust, authority and engagement.
+                        </p>
+                    </div>
+                </div>
+                <!-- Image/Graphic -->
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl img-hover-zoom bg-gray-200 dark:bg-slate-700 aspect-[4/3]">
+                    <!-- Placeholder Image - Replace with your own via the src attribute -->
+                    <img src="https://placehold.co/800x600/1e293b/ffffff?text=Professional+Portrait" alt="Professional Portrait Placeholder" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <p class="font-bold text-xl">Strategy in Motion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Milestones Section -->
+    <section id="milestones" class="py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 dark:text-white">Career Milestones</h2>
+            <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">Key achievements spanning journalism, editorial leadership and strategic communications.</p>
+        </div>
+
+        <div class="space-y-12">
+            <!-- EDIT HERE: Milestone 1 -->
+            <div class="group relative bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-md transition-shadow">
+                <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
+                    <div class="bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-500 p-4 rounded-xl flex-shrink-0">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                    </div>
+                    <div>
+                        <span class="text-sm font-semibold text-brand-500 tracking-wide uppercase">Automotive Industry Analysis</span>
+                        <h3 class="text-xl md:text-2xl font-bold mt-1 mb-2 dark:text-white">Lead Analyst & Feature Editor</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Spearheaded deep-dive analytical reports on the global transition to electric vehicles. Authored over 500+ published articles, reviews, and market trend forecasts, establishing a reputation as a trusted voice in automotive transitions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EDIT HERE: Milestone 2 -->
+            <div class="group relative bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-md transition-shadow">
+                <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
+                    <div class="bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-500 p-4 rounded-xl flex-shrink-0">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    </div>
+                    <div>
+                        <span class="text-sm font-semibold text-brand-500 tracking-wide uppercase">Communications Mandates</span>
+                        <h3 class="text-xl md:text-2xl font-bold mt-1 mb-2 dark:text-white">Strategic Consultant for Upcoming OEMs</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Consulted for legacy automakers to revitalize their digital PR strategies. Developed press release blueprints and communication frameworks that improved brand sentiment scores.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EDIT HERE: Milestone 3 -->
+            <div class="group relative bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700 hover:shadow-md transition-shadow">
+                <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
+                    <div class="bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-500 p-4 rounded-xl flex-shrink-0">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <div>
+                        <span class="text-sm font-semibold text-brand-500 tracking-wide uppercase">Digital Media Editorial Leadership</span>
+                        <h3 class="text-xl md:text-2xl font-bold mt-1 mb-2 dark:text-white">Editorial Leadership, Digital Platforms</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Managed a cross-functional team of reporters, anchors, writers, videographers and SEO specialists. Grew digital publication readership from 100k to 6M monthly unique visitors through targeted content strategy and multimedia storytelling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-100 dark:bg-slate-800/80 border-t border-gray-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 dark:text-white">Ready to Elevate Your Narrative?</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-10 text-lg">Whether you need an expert opinion on industry trends or a robust communications strategy, I'm available for consulting and editorial collaborations.</p>
+            
+            <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm text-left max-w-2xl mx-auto border border-gray-200 dark:border-slate-700">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="Jane Doe">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="jane@example.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition-all" placeholder="How can we work together?"></textarea>
+                    </div>
+                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-slate-900 hover:bg-slate-800 dark:bg-brand-600 dark:hover:bg-brand-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors">
+                        Send Message
+                    </button>
+                    <!-- Success message placeholder -->
+                    <p id="form-msg" class="text-green-600 dark:text-green-400 text-center text-sm hidden mt-2">Message sent successfully! (Demo only)</p>
+                </form>
+            </div>
+            
+            <!-- EDIT HERE: Social Links -->
+            <div class="mt-12 flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                    <span class="sr-only">LinkedIn</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+                    <span class="sr-only">Twitter</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 py-8 text-center border-t border-gray-200 dark:border-slate-800 transition-colors duration-300">
+        <!-- EDIT HERE: Footer Name/Year -->
+        <p class="text-sm text-gray-500 dark:text-gray-400">&copy; <span id="year"></span> Alex Carter. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Check for saved theme preference or system preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        function toggleTheme() {
+            // Toggle icons
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            // If is dark mode
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                // if is light mode
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+
+        // Dummy Form Submission for Demo
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const msg = document.getElementById('form-msg');
+            msg.classList.remove('hidden');
+            setTimeout(() => {
+                msg.classList.add('hidden');
+                this.reset();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
